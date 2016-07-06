@@ -1,0 +1,79 @@
+{namespace i=TYPO3\CMS\Install\ViewHelpers}
+
+<div class="alert alert-notice">
+	<h4>Current configuration</h4>
+	<table class="table table-striped">
+		<tr>
+			<td>
+				{f:if(condition:'{imageConfiguration.imageMagickOrGraphicsMagick} == \'im\'', then:'ImageMagick', else:'GrapicsMagick')} enabled:
+			</td>
+			<td>
+				{f:if(condition:imageConfiguration.imageMagickEnabled, then:'Yes', else:'No')}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ImageMagick or GraphicsMagick:
+			</td>
+			<td>
+				{f:if(condition:'{imageConfiguration.imageMagickOrGraphicsMagick} == \'im\'', then:'ImageMagick', else:'GrapicsMagick')}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{f:if(condition:'{imageConfiguration.imageMagickOrGraphicsMagick} == \'im\'', then:'ImageMagick', else:'GrapicsMagick')} path:
+			</td>
+			<td>
+				{imageConfiguration.imageMagickPath}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{f:if(condition:'{imageConfiguration.imageMagickOrGraphicsMagick} == \'im\'', then:'ImageMagick', else:'GrapicsMagick')} version:
+			</td>
+			<td>
+				{imageConfiguration.imageMagickVersion}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				IM5 effects enabled:
+			</td>
+			<td>
+				{imageConfiguration.imageMagick5Effects} <span>(Blurring/Sharpening with IM 5+)</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				GDLib enabled:
+			</td>
+			<td>
+				{f:if(condition:imageConfiguration.gdlibEnabled, then:'Yes', else:'No')}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				GDLib using PNG:
+			</td>
+			<td>
+				{imageConfiguration.gdlibPng}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Freetype DPI:
+			</td>
+			<td>
+				{imageConfiguration.freeTypeDpi} <span>(Should be 96 for Freetype 2)</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				File Formats:
+			</td>
+			<td>
+				{imageConfiguration.fileFormats}
+			</td>
+		</tr>
+	</table>
+</div>

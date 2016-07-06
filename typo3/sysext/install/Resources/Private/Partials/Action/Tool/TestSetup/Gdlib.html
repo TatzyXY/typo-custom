@@ -1,0 +1,18 @@
+{namespace i=TYPO3\CMS\Install\ViewHelpers}
+
+<form method="post">
+	<f:render partial="Action/Common/HiddenFormFields" arguments="{_all}" />
+	<f:if condition="{gdlibTested}">
+		<f:render partial="Action/Tool/TestSetup/AboutImageHandling" arguments="{_all}" />
+		<f:render partial="Action/Tool/TestSetup/VerifyTestResults" arguments="{_all}" />
+		<f:render partial="Action/Tool/TestSetup/CurrentConfiguration" arguments="{_all}" />
+		<p>
+			This verifies that the GDLib installation works properly.
+		</p>
+
+		<f:for each="{testResults}" as="test">
+			<f:render partial="Action/Tool/TestSetup/DisplayTwinImage" arguments="{_all}"/>
+		</f:for>
+	</f:if>
+	<f:render partial="Action/Common/SubmitButton" arguments="{name:'testGdlib', text:'Test GDLib'}"/>
+</form>
